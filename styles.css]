@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700;800&family=Noto+Serif:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+:root {
+  --familyForHeadings: "Noto serif", serif;
+  --Notofamily: "Noto serif", serif;
+  --Bitterfamily: "Bitter", serif;
+  --OpenSansfamily: "Open Sans", sans-serif;
+  --FontSubheading1: 500 12px/18px var(--Bitterfamily);
+  --section-title: 600 16px/18px var(--Bitterfamily);
+  --card-title: 600 14px/18px var(--Bitterfamily);
+  --card-content: 500 12px/18px var(--OpenSansfamily);
+  --FontforStrap: 500 12px/18px var(--OpenSansfamily);
+  --FontforRegular: 400 15px/22px var(--OpenSansfamily);
+  --white-a100: #fff;
+  --white-a200: #797d8a;
+  --white-a300: #f5f7fd;
+  --grey-40: #c2c9de;
+  --grey-50: #42444b;
+  --grey-60: #9da2b4;
+  --grey-70: #777b88;
+  --grey-80: #5f626c;
+  --grey-90: #42444b;
+  --grey-100: #232428;
+  --blue-50: #cbcbf5;
+  --blue-100: #c3c3f3;
+  --blue-200: #6666ce;
+  --blue-400: #4949b6;
+  --blue-800: #4343a4;
+  --section-border: 1px solid #c2c9de;
+  --background-pink100: #f8f0f2;
+  --background-pink200: #faf7f7;
+  --background-pink300: rgba(232, 206, 219, 0.4);
+  --background-yellow100: rgba(253, 250, 238, 0.44);
+  --background-yellow200: rgba(239, 232, 209, 0.15);
+  --background-green100: rgba(220, 252, 236, 0.44);
+  --background-green200: rgba(221, 250, 225, 0.15);
+  --background-brown100: rgba(103, 86, 64, 0.07);
+  --background-brown200: rgb(237, 244, 246);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--OpenSansfamily);
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--grey-90);
+}
+
+/***
+ *          _           _  _
+ *     ___ | |_  _   _ | |(_) _ __    __ _
+ *    / __|| __|| | | || || || '_ \  / _` |
+ *    \__ \| |_ | |_| || || || | | || (_| |
+ *    |___/ \__| \__, ||_||_||_| |_| \__, |
+ *               |___/               |___/
+ */
+.material-icons {
+  font-variant: normal;
+  font-size: 1.3em !important;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 0.5;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+.em {
+  color: var(--grey-80) !important;
+  font-weight: 600;
+}
+
+.dim {
+  font: var(--FontforStrap);
+  color: var(--grey-80);
+}
+
+header {
+  background: radial-gradient(closest-side, var(--blue-200) 0, var(--blue-400) 40%, var(--blue-800) 60%), radial-gradient(circle at 10%, var(--blue-200) 0, var(--blue-400) 20%, var(--blue-800) 60%), radial-gradient(ellipse at bottom, var(--blue-200) 0, var(--blue-400) 20%, var(--blue-800) 60%);
+  text-align: start;
+}
+header .title-name {
+  color: var(--white-a100);
+  font-family: var(--familyForHeadings);
+  font-weight: 300;
+  font-kerning: normal;
+  font-stretch: normal;
+  font-size: 3.1em;
+  padding-top: 15px;
+  line-height: 1.1em;
+}
+header .title-contact {
+  box-sizing: border-box;
+  width: 100%;
+  color: var(--white-a100);
+  font-size: 11px;
+  font-kerning: normal;
+}
+header .title-strap {
+  font-size: 12px;
+  color: var(--blue-100);
+  font-stretch: semi-expanded;
+}
+header .telephone, header .email, header .address, header .contacts {
+  font-stretch: expanded;
+}
+header .telephone:before {
+  content: "telephone";
+  font-family: "Material Icons";
+  font-size: 12px;
+  padding-right: 10px;
+  line-height: 15px;
+  vertical-align: bottom;
+  transform: translateY(0px);
+}
+header .email:before {
+  content: "email";
+  font-family: "Material Icons";
+  font-size: 12px;
+  padding-right: 10px;
+  line-height: 15px;
+  vertical-align: bottom;
+  transform: translateY(0px);
+}
+header .address:before {
+  content: "home";
+  font-family: "Material Icons";
+  font-size: 12px;
+  padding-right: 10px;
+  line-height: 15px;
+  vertical-align: bottom;
+  transform: translateY(0px);
+}
+header .contacts:before {
+  content: "contacts";
+  font-family: "Material Icons";
+  font-size: 12px;
+  padding-right: 10px;
+  line-height: 15px;
+  vertical-align: bottom;
+  transform: translateY(0px);
+}
+
+.section-skills,
+.section-sectors,
+.section-employment,
+.section-summary,
+.section-role-sort,
+.section-professional-summary,
+.section-education {
+  border: var(--section-border);
+  margin-top: 5px;
+  border-radius: 8px;
+  padding: 20px 10px;
+}
+
+.section-education {
+  background: linear-gradient(to left, var(--background-brown100) 0, white 20%, var(--background-brown200) 59%), radial-gradient(ellipse at top, var(--background-brown100) 0, white 20%, var(--background-brown200) 60%);
+}
+.section-education .education-title {
+  padding-left: 18px;
+  padding-top: 8px;
+  font: var(--section-title);
+}
+.section-education .education-card .education-card-title {
+  padding-left: 18px;
+  padding-top: 16px;
+  font: var(--FontforRegular);
+  line-height: 19px;
+}
+.section-education .education-card .education-card-content {
+  padding-left: 18px;
+  padding-top: 16px;
+  font: var(--FontforRegular);
+}
+
+.section-employment .section-title-employment {
+  padding-left: 18px;
+  padding-top: 8px;
+  font: var(--section-title);
+}
+
+.section-skills {
+  background: linear-gradient(to left, var(--background-yellow200) 0, white 20%, var(--background-yellow100) 59%), radial-gradient(ellipse at top, var(--background-yellow200) 0, white 20%, var(--background-yellow100) 60%);
+}
+.section-skills .section-skills-title {
+  padding-left: 18px;
+  padding-top: 8px;
+  font: var(--section-title);
+}
+.section-skills .skills-card-header {
+  font: var(--FontSubheading1);
+  font-stretch: semi-expanded;
+  color: var(--grey-80);
+}
+.section-skills .skills-card-content {
+  font-size: 12px;
+  margin: 1px;
+  font-stretch: semi-expanded;
+  color: var(--grey-50);
+}
+
+.section-sectors {
+  background: linear-gradient(to left, var(--background-brown100) 0, white 20%, var(--background-brown200) 59%), radial-gradient(ellipse at top, var(--background-brown100) 0, white 20%, var(--background-brown200) 60%);
+}
+.section-sectors .sectors-title {
+  padding-left: 18px;
+  padding-top: 8px;
+  font: var(--section-title);
+}
+.section-sectors .sectors-card-header {
+  font: var(--FontSubheading1);
+  font-stretch: semi-expanded;
+  color: var(--grey-80);
+}
+.section-sectors .sectors-content {
+  padding-left: 18px;
+  padding-top: 16px;
+  font: var(--FontforRegular);
+}
+
+.section-role-sort {
+  background: linear-gradient(to left, var(--background-green100) 0, white 20%, var(--background-green200) 59%), radial-gradient(ellipse at top, var(--background-green100) 0, white 20%, var(--background-green200) 60%);
+}
+.section-role-sort .role-sought-title {
+  padding-left: 18px;
+  padding-top: 8px;
+  font: var(--section-title);
+}
+.section-role-sort .role-sought-card-header {
+  font: var(--FontSubheading1);
+  font-stretch: semi-expanded;
+  color: var(--grey-80);
+}
+.section-role-sort .role-sought-card-content {
+  padding-left: 18px;
+  padding-top: 16px;
+  font: var(--FontforRegular);
+  line-height: 19px;
+}
+
+.section-professional-summary .professional-summary-title {
+  padding-left: 18px;
+  padding-top: 8px;
+  font: var(--section-title);
+}
+.section-professional-summary .professional-summary-content {
+  margin-top: 24px;
+}
+.section-professional-summary .professional-summary-content > table {
+  display: table;
+  border-collapse: collapse;
+}
+.section-professional-summary .professional-summary-content > table td {
+  padding: 18px;
+  border: var(--white-a300) solid 1px;
+  vertical-align: top;
+  text-align: left;
+  padding-left: 18px;
+  padding-top: 16px;
+  font: var(--FontforRegular);
+}
+.section-professional-summary .professional-summary-content > table td .title {
+  font: var(--FontforRegular);
+  font-weight: 600;
+  line-height: 19px;
+  padding: 0 !important;
+  margin: 0;
+  text-align: center;
+  vertical-align: center;
+  margin-bottom: 16px;
+}
+.section-professional-summary .professional-summary-content > table td:first-child > p {
+  text-align: left;
+  padding-left: 8px;
+}
+.section-professional-summary .professional-summary-content tr:nth-child(odd) {
+  background: linear-gradient(to left, var(--background-green100) 0, white 20%, var(--background-green200) 59%), radial-gradient(ellipse at top, var(--background-green100) 0, white 20%, var(--background-green200) 60%);
+}
+.section-professional-summary .professional-summary-content tr:nth-child(even) {
+  background: linear-gradient(to left, var(--background-brown100) 0, white 20%, var(--background-brown200) 59%), radial-gradient(ellipse at top, var(--background-brown100) 0, white 20%, var(--background-brown200) 60%);
+}
+
+/***
+ *     _                              _
+ *    | |  __ _  _   _   ___   _   _ | |_
+ *    | | / _` || | | | / _ \ | | | || __|
+ *    | || (_| || |_| || (_) || |_| || |_
+ *    |_| \__,_| \__, | \___/  \__,_| \__|
+ *               |___/
+ */
+header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 24px 20px 8px 24px;
+  margin: 0;
+}
+header .title-name {
+  display: inline-block;
+  margin: 0;
+}
+header .title-strap {
+  margin-left: 14px;
+}
+header .title-hr {
+  visibility: hidden;
+}
+header .title-contact {
+  border-top: solid 0.09em var(--blue-200);
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+header .title-contact span {
+  margin-right: 4px;
+}
+
+.section-skills ul {
+  column-count: 3;
+}
+
+.section-employment .card-employment .card-title-employment {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr;
+  font: var(--card-title);
+}
+.section-employment .card-employment .card-title-employment > div:nth-child(2) {
+  text-align: center;
+}
+.section-employment .card-employment .card-content-employment {
+  font: var(--card-content);
+}
+
+@media print {
+  body {
+    max-width: 21cm;
+  }
+
+  header > * {
+    background-color: blue;
+  }
+
+  .section-skills {
+    background-color: red !important;
+  }
+}
+
+/*# sourceMappingURL=styles.css%5D.map */
