@@ -1,0 +1,24 @@
+{
+  "name": "cv_sep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baliboy20/resume.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baliboy20/resume/issues"
+  },
+  "homepage": "https://github.com/baliboy20/resume#readme",
+  "dependencies": {
+    "browser-sync": "^2.27.7",
+    "node-sass": "^7.0.0",
+    "watch": "^1.0.2"
+  }
+}

@@ -1,21 +1,20 @@
-//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700;800&family=Yrsa:wght@300;400;500;600;700&display=swap');//@import "palette";
-//@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700;800&family=Roboto+Slab:wght@100;300;500;700;900&family=Yrsa:wght@300;400;500;600;700&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700;800&family=Montserrat&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Poppins&family=Roboto+Slab:wght@100;300;500;700;900&family=Yrsa:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700;800&family=Noto+Serif:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600&display=swap');
 
 :root {
   // typography
-  --familyForHeadings: "Noto serif", serif;
+  --familyForHeadings: "IBM Plex Sans", sans-serif;
+  //--familyForHeadings: "Noto serif", serif;
   --Notofamily: "Noto serif", serif;
   --Bitterfamily: "Bitter", serif;
-  --OpenSansfamily: "Open Sans", sans-serif;
-  --FontSubheading1: 500 12px/18px var(--Bitterfamily);
+  --OpenSansfamily: "IBM Plex Sans", sans-serif; // "Open Sans", sans-serif;
+  --IBMPlexfamily: "IBM Plex Sans", sans-serif;
 
-  --section-title: 600 16px/18px var(--Bitterfamily);
+  --FontSubheading1: 500 12px/18px var(--IBMPlexfamily);
 
-  --card-title: 600 14px/18px var(--Bitterfamily);
+  --section-title: 600 16px/18px var(IBMPlexfamily);
+
+  --card-title: 600 14px/18px var(IBMPlexfamily);
   --card-content: 500 12px/18px var(--OpenSansfamily);
 
   --FontforStrap: 500 12px/18px var(--OpenSansfamily);
@@ -38,7 +37,7 @@
   --blue-400: #4949b6;
   --blue-800: #4343a4;
 
-  --section-border: 1px solid #c2c9de;
+  --section-border: 1px solid #f5f5f6;
 
   // background colors
   --background-pink100: #f8f0f2;
@@ -63,13 +62,13 @@
 body {
   font-family: var(--OpenSansfamily);
   font-weight: 500;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   color: var(--grey-90)
 }
 
-@mixin backgroundGradient($col1,$col2, $col3){
-  background: linear-gradient( to left, $col1 0, $col2 20%, $col3 59%),
+@mixin backgroundGradient($col1,$col2, $col3) {
+  background: linear-gradient(to left, $col1 0, $col2 20%, $col3 59%),
   radial-gradient(ellipse at top, $col1 0, $col2 20%, $col3 60%);
 }
 
@@ -141,6 +140,36 @@ body {
  *    |___/ \__| \__, ||_||_||_| |_| \__, |
  *               |___/               |___/
  */
+body {
+  background-color: lighten(orangered, 4%);
+}
+
+body:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(127, 127, 127, 0.05);
+  $cc: rgba(orange, .33);
+  background-image: radial-gradient($cc 33%, transparent 33%);
+  background-size: .4rem .2rem;
+  z-index: -10000;
+
+}
+
+section {
+  border: var(--section-border);
+  margin-top: 5px;
+  border-radius: 8px;
+  padding: 20px 10px;
+  margin-bottom: 18px;
+  background-color: whitesmoke;
+}
+
+
 .material-icons {
   font-variant: normal;
   font-size: 1.3em !important;
@@ -182,28 +211,34 @@ header {
   $col2: var(--blue-400);
   $col3: var(--blue-800);
 
-  background: radial-gradient(closest-side, $col1 0, $col2 40%, $col3 60%),
-  radial-gradient(circle at 10%, $col1 0, $col2 20%, $col3 60%),
-  radial-gradient(ellipse at bottom, $col1 0, $col2 20%, $col3 60%);
+  border-bottom: 3px;
+  border-radius: 16px;
+
+  background:  black;
+  //radial-gradient(closest-side, $col1 0, $col2 40%, $col3 60%),
+  //radial-gradient(circle at 10%, $col1 0, $col2 20%, $col3 60%),
+  //radial-gradient(ellipse at bottom, $col1 0, $col2 20%, $col3 60%);
   text-align: start;
 
   .title-name {
     //color: red;
     color: var(--white-a100);
     font-family: var(--familyForHeadings);
-    font-weight: 300;
-    font-kerning: normal;
+    font-weight: 500;
+    //font-kerning: normal;
     //font-variant: small-caps;
-    font-stretch: normal;
+    //font-stretch: normal;
     font-size: 3.1em;
     padding-top: 15px;
     line-height: 1.1em;
+    text-shadow: 0 2px rgba(white, .1), 2px 0 5px rgba(palegreen, .1);
   }
 
   .title-contact {
     //font-variant: petite-caps;
     box-sizing: border-box;
     width: 100%;
+    //color: orange;
     color: var(--white-a100);
     font-size: 11px;
     font-kerning: normal;
@@ -241,26 +276,25 @@ header {
   }
 }
 
-.section-skills,
-.section-sectors,
-.section-employment,
-.section-summary,
-.section-role-sort,
-.section-professional-summary,
-.section-education {
-  border: var(--section-border);
-  margin-top: 5px;
-  border-radius: 8px;
-  padding: 20px 10px;
+header:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(127, 127, 127, 0.05);
+  $cc: rgba(black, .03);
+  background-image: radial-gradient($cc 33%, transparent 33%);
+  background-size: .4rem .4rem;
+
 }
 
 
 // Education.
 .section-education {
-  $g1: var( --background-brown100);
-  $g2: var( --background-brown200);
-  $g3: white;
-  @include backgroundGradient( $g1, $g3, $g2);
+
   .education-title {
     @include sectionTitle();
   }
@@ -288,10 +322,10 @@ header {
 .section-skills {
   //$g1: red;
   //$g1:red;
-  $g1: var( --background-yellow200);
-  $g2: var( --background-yellow100);
-  $g3: white;
-  @include backgroundGradient( $g1, $g3, $g2);
+  //$g1: var( --background-yellow200);
+  //$g2: var( --background-yellow100);
+  //$g3: white;
+  //@include backgroundGradient( $g1, $g3, $g2);
   .section-skills-title {
     @include sectionTitle();
   }
@@ -307,10 +341,10 @@ header {
 
 // Sectors.
 .section-sectors {
-  $g1: var( --background-brown100);
-  $g2: var( --background-brown200);
-  $g3: white;
-  @include backgroundGradient( $g1, $g3, $g2);
+  //$g1: var( --background-brown100);
+  //$g2: var( --background-brown200);
+  //$g3: white;
+  //@include backgroundGradient( $g1, $g3, $g2);
 
 
   .sectors-title {
@@ -328,10 +362,10 @@ header {
 
 // Role Sought.
 .section-role-sort {
-  $g1: var( --background-green100);
-  $g2: var( --background-green200);
+  $g1: var(--background-green100);
+  $g2: var(--background-green200);
   $g3: white;
-  @include backgroundGradient( $g1, $g3, $g2);
+  //@include backgroundGradient( $g1, $g3, $g2);
   .role-sought-title {
     @include sectionTitle();
   }
@@ -370,14 +404,15 @@ header {
 
         & .title {
           //border: 1px solid crimson;
-          @include  regularSemiBoldTitle;
-          padding: 0!important;
+          @include regularSemiBoldTitle;
+          padding: 0 !important;
           margin: 0;
           text-align: center;
           vertical-align: center;
           margin-bottom: 16px;
 
         }
+
         &:first-child > p {
           text-align: left;
           padding-left: 8px;
@@ -385,17 +420,19 @@ header {
         }
       }
     }
+
     tr:nth-child(odd) {
-      $g1: var( --background-green100);
-      $g2: var( --background-green200);
+      $g1: var(--background-green100);
+      $g2: var(--background-green200);
       $g3: white;
-      @include backgroundGradient( $g1, $g3, $g2);
+      @include backgroundGradient($g1, $g3, $g2);
     }
+
     tr:nth-child(even) {
-      $g1: var( --background-brown100);
-      $g2: var( --background-brown200);
+      $g1: var(--background-brown100);
+      $g2: var(--background-brown200);
       $g3: white;
-      @include backgroundGradient( $g1, $g3, $g2);
+      @include backgroundGradient($g1, $g3, $g2);
     }
   }
 
@@ -456,6 +493,7 @@ header {
 }
 
 .section-employment {
+
   .card-employment {
 
     .card-title-employment {
@@ -475,6 +513,16 @@ header {
     }
 
   }
+}
+.ZZvertical {
+font-weight: 500;
+  color: white;
+  //text-shadow: 0px 0px 6px black;
+  -webkit-text-stroke: gray 0.02em;
+  letter-spacing: 3px;
+  font-size: 35px;
+ writing-mode: vertical-rl;
+ padding: 10px;
 }
 
 @media print {
