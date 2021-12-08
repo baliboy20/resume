@@ -45,9 +45,13 @@
 }
 
 body {
+  margin: 0;
   font-family: var(--OpenSansfamily);
   font-weight: 500;
   color: var(--grey-90);
+  display: block;
+  position: relative;
+  width: 100vw;
 }
 
 /***
@@ -76,7 +80,7 @@ body:after {
   z-index: -10000;
 }
 
-section {
+section:not(.section-core-grid) {
   border: var(--section-border);
   margin-top: 5px;
   border-radius: 8px;
@@ -221,34 +225,34 @@ header:after {
   font: var(--section-title);
 }
 
-.section-skills .section-skills-title {
+.section-tech-skills .section-skills-title {
   padding-left: 18px;
   padding-top: 8px;
   font: var(--section-title);
 }
-.section-skills .skills-card-header {
+.section-tech-skills .skills-card-header {
   font: var(--FontSubheading1);
   font-stretch: semi-expanded;
   color: var(--grey-80);
 }
-.section-skills .skills-card-content {
+.section-tech-skills .skills-card-content {
   font-size: 12px;
   margin: 1px;
   font-stretch: semi-expanded;
   color: var(--grey-50);
 }
 
-.section-sectors .sectors-title {
+.section-industries .industries-title {
   padding-left: 18px;
   padding-top: 8px;
   font: var(--section-title);
 }
-.section-sectors .sectors-card-header {
+.section-industries .sectors-card-header {
   font: var(--FontSubheading1);
   font-stretch: semi-expanded;
   color: var(--grey-80);
 }
-.section-sectors .sectors-content {
+.section-industries .industries-content {
   padding-left: 18px;
   padding-top: 16px;
   font: var(--FontforRegular);
@@ -321,6 +325,49 @@ header:after {
  *    |_| \__,_| \__, | \___/  \__,_| \__|
  *               |___/
  */
+.section-grid {
+  background-color: orange;
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+.section-grid > .title {
+  font-weight: 500;
+  color: white;
+  -webkit-text-stroke: gray 0.02em;
+  letter-spacing: 3px;
+  font-size: 35px;
+  writing-mode: vertical-rl;
+  padding: 10px;
+}
+.section-grid > .content {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: transparent;
+}
+
+.section-title {
+  font-weight: 500;
+  color: white;
+  -webkit-text-stroke: gray 0.02em;
+  letter-spacing: 3px;
+  font-size: 35px;
+  writing-mode: vertical-rl;
+  padding: 10px;
+}
+
+.section-content {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: transparent;
+}
+
 header {
   position: relative;
   display: grid;
@@ -350,8 +397,74 @@ header .title-contact span {
   margin-right: 4px;
 }
 
-.section-skills ul {
+.section-tech-skills {
+  background-color: orange;
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+.section-tech-skills > .title {
+  font-weight: 500;
+  color: white;
+  -webkit-text-stroke: gray 0.02em;
+  letter-spacing: 3px;
+  font-size: 35px;
+  writing-mode: vertical-rl;
+  padding: 10px;
+}
+.section-tech-skills > .content {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: transparent;
+}
+.section-tech-skills ul {
   column-count: 3;
+}
+
+.section-skills-title {
+  font-weight: 500;
+  color: white;
+  -webkit-text-stroke: gray 0.02em;
+  letter-spacing: 3px;
+  font-size: 35px;
+  writing-mode: vertical-rl;
+  padding: 10px;
+}
+
+.section-skills-content {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: transparent;
+}
+
+.section-industries {
+  background-color: orange;
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+.section-industries > .title {
+  font-weight: 500;
+  color: white;
+  -webkit-text-stroke: gray 0.02em;
+  letter-spacing: 3px;
+  font-size: 35px;
+  writing-mode: vertical-rl;
+  padding: 10px;
+}
+.section-industries > .content {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: transparent;
 }
 
 .section-employment .card-employment .card-title-employment {
@@ -367,16 +480,6 @@ header .title-contact span {
   font: var(--card-content);
 }
 
-.ZZvertical {
-  font-weight: 500;
-  color: white;
-  -webkit-text-stroke: gray 0.02em;
-  letter-spacing: 3px;
-  font-size: 35px;
-  writing-mode: vertical-rl;
-  padding: 10px;
-}
-
 @media print {
   body {
     max-width: 21cm;
@@ -386,7 +489,7 @@ header .title-contact span {
     background-color: blue;
   }
 
-  .section-skills {
+  .section-tech-skills {
     background-color: red !important;
   }
 }

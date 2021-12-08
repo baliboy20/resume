@@ -60,11 +60,17 @@
 }
 
 body {
+  margin: 0;
   font-family: var(--OpenSansfamily);
   font-weight: 500;
   //-webkit-font-smoothing: antialiased;
   //-moz-osx-font-smoothing: grayscale;
-  color: var(--grey-90)
+  color: var(--grey-90);
+  display: block;
+  position: relative;
+  width: 100vw;
+  //overflow: hidden;
+
 }
 
 @mixin backgroundGradient($col1,$col2, $col3) {
@@ -160,7 +166,7 @@ body:after {
 
 }
 
-section {
+section:not(.section-core-grid) {
   border: var(--section-border);
   margin-top: 5px;
   border-radius: 8px;
@@ -319,13 +325,7 @@ header:after {
 }
 
 // Skills.
-.section-skills {
-  //$g1: red;
-  //$g1:red;
-  //$g1: var( --background-yellow200);
-  //$g2: var( --background-yellow100);
-  //$g3: white;
-  //@include backgroundGradient( $g1, $g3, $g2);
+.section-tech-skills {
   .section-skills-title {
     @include sectionTitle();
   }
@@ -340,14 +340,14 @@ header:after {
 }
 
 // Sectors.
-.section-sectors {
+.section-industries {
   //$g1: var( --background-brown100);
   //$g2: var( --background-brown200);
   //$g3: white;
   //@include backgroundGradient( $g1, $g3, $g2);
 
 
-  .sectors-title {
+  .industries-title {
     @include sectionTitle();
   }
 
@@ -355,7 +355,7 @@ header:after {
     @include listContentTitle;
   }
 
-  .sectors-content {
+  .industries-content {
     @include regularContent();
   }
 }
@@ -447,6 +447,48 @@ header:after {
  *    |_| \__,_| \__, | \___/  \__,_| \__|
  *               |___/
  */
+
+@mixin section-grid() {
+  background-color: orange;
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  > .title {
+    @include section-title;
+  }
+  > .content {
+    @include  section-content;
+  }
+}
+@mixin section-title() {
+  font-weight: 500;
+  color: white;
+  //text-shadow: 0px 0px 6px black;
+  -webkit-text-stroke: gray 0.02em;
+  letter-spacing: 3px;
+  font-size: 35px;
+  writing-mode: vertical-rl;
+  padding: 10px;
+}
+@mixin section-content(){
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  //width: calc(100% - 50px);
+  background-color: transparent;
+}
+.section-grid {
+@include section-grid;
+
+}
+.section-title {
+@include section-title
+}
+.section-content{
+  @include section-content;
+}
 header {
   position: relative;
   display: grid;
@@ -483,14 +525,24 @@ header {
     }
   }
 }
-
-.section-skills {
-
+.section-tech-skills {
+@include section-grid;
 
   & ul {
     column-count: 3;
   }
 }
+.section-skills-title {
+  @include  section-title;
+}
+.section-skills-content{
+  @include section-content;
+}
+
+.section-industries {
+  @include section-grid;
+}
+
 
 .section-employment {
 
@@ -514,16 +566,7 @@ header {
 
   }
 }
-.ZZvertical {
-font-weight: 500;
-  color: white;
-  //text-shadow: 0px 0px 6px black;
-  -webkit-text-stroke: gray 0.02em;
-  letter-spacing: 3px;
-  font-size: 35px;
- writing-mode: vertical-rl;
- padding: 10px;
-}
+
 
 @media print {
   body {
@@ -532,7 +575,7 @@ font-weight: 500;
   header > * {
     background-color: blue;
   }
-  .section-skills {
+  .section-tech-skills {
     background-color: red !important;
   }
 }
