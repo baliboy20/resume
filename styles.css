@@ -23,14 +23,14 @@
   --grey-90: #42444b;
   --grey-100: #232428;
   --blue-50: #cbcbf5;
-  --blue-100: #c3c3f3;
-  --blue-200: #6666ce;
+  --blue-100: #d0d0de;
+  --blue-200: #4f4f77;
   --blue-400: #4949b6;
   --blue-800: #4343a4;
-  --teal-100: #d7fad6;
-  --teal-200: #7ee3ea;
-  --teal-400: #66bac0;
-  --teal-600: #529398;
+  --teal-100: rgba(105, 102, 95, 0.95);
+  --teal-200: rgba(105, 102, 95, 0.95);
+  --teal-400: rgba(105, 102, 95, 0.70);
+  --teal-600: rgba(59, 62, 77, 0.95);
   --section-border: 1px solid #f5f5f6;
   --background-pink100: #f8f0f2;
   --background-pink200: #faf7f7;
@@ -136,17 +136,16 @@ section {
   color: var(--grey-80);
 }
 
-.header {
+.header2 {
   margin-bottom: 18px;
-}
-
-header {
+  display: block;
+  position: sticky;
+  top: 0;
   background: linear-gradient(to top, var(--teal-600) 30%, var(--teal-400) 50%, var(--teal-600) 90%);
-  box-shadow: 1px 1px 12px -5px #3a423e;
-  border-bottom: 1px dotted #128a93;
+  box-shadow: 0px 5px 18px -2px #948b5b;
   text-align: start;
 }
-header .title-name {
+.header2 .title-name {
   color: var(--white-a100);
   -webkit-text-stroke-width: 0.09rem;
   text-shadow: 0 1px 1px gainsboro;
@@ -156,22 +155,22 @@ header .title-name {
   padding-top: 15px;
   line-height: 1.1em;
 }
-header .title-contact {
+.header2 .title-contact {
   box-sizing: border-box;
   width: 100%;
   color: var(--white-a100);
   font-size: 11px;
   font-kerning: normal;
 }
-header .title-strap {
+.header2 .title-strap {
   font-size: 12px;
   color: var(--blue-100);
   font-stretch: semi-expanded;
 }
-header .telephone, header .email, header .address, header .contacts {
+.header2 .telephone, .header2 .email, .header2 .address, .header2 .contacts {
   font-stretch: expanded;
 }
-header .telephone:before {
+.header2 .telephone:before {
   content: "telephone";
   font-family: "Material Icons";
   font-size: 12px;
@@ -180,7 +179,7 @@ header .telephone:before {
   vertical-align: bottom;
   transform: translateY(0px);
 }
-header .email:before {
+.header2 .email:before {
   content: "email";
   font-family: "Material Icons";
   font-size: 12px;
@@ -189,7 +188,7 @@ header .email:before {
   vertical-align: bottom;
   transform: translateY(0px);
 }
-header .address:before {
+.header2 .address:before {
   content: "home";
   font-family: "Material Icons";
   font-size: 12px;
@@ -198,7 +197,7 @@ header .address:before {
   vertical-align: bottom;
   transform: translateY(0px);
 }
-header .contacts:before {
+.header2 .contacts:before {
   content: "contacts";
   font-family: "Material Icons";
   font-size: 12px;
@@ -206,19 +205,6 @@ header .contacts:before {
   line-height: 15px;
   vertical-align: bottom;
   transform: translateY(0px);
-}
-
-header:after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(127, 127, 127, 0.05);
-  background-image: radial-gradient(rgba(220, 220, 220, 0.03) 33%, transparent 33%);
-  background-size: 0.4rem 0.4rem;
 }
 
 .skills-card-header {
@@ -291,6 +277,13 @@ header:after {
  *    |_| \__,_| \__, | \___/  \__,_| \__|
  *               |___/
  */
+.main-container {
+  display: block;
+  position: relative;
+  height: 100vh;
+  overflow: auto;
+}
+
 .section-grid {
   margin-left: 18px;
   margin-right: 18px;
@@ -301,7 +294,8 @@ header:after {
 .section-grid > .title {
   font-weight: 500;
   color: white;
-  -webkit-text-stroke: 0.01em;
+  text-shadow: 0.05em 0.05em 0.05em whitesmoke;
+  -webkit-text-stroke: 0.01em white;
   letter-spacing: 3px;
   font-size: 12px;
   writing-mode: vertical-rl;
@@ -322,7 +316,8 @@ header:after {
 .section-title {
   font-weight: 500;
   color: white;
-  -webkit-text-stroke: 0.01em;
+  text-shadow: 0.05em 0.05em 0.05em whitesmoke;
+  -webkit-text-stroke: 0.01em white;
   letter-spacing: 3px;
   font-size: 12px;
   writing-mode: vertical-rl;
@@ -341,24 +336,26 @@ header:after {
   margin-left: 10px;
 }
 
-header {
-  position: relative;
+.header2 {
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-columns: 1fr;
   padding: 24px 20px 8px 24px;
   margin: 0;
+  z-index: 1000;
 }
-header .title-name {
+.header2 .title-name {
   display: inline-block;
   margin: 0;
 }
-header .title-strap {
+.header2 .title-strap {
   margin-left: 14px;
 }
-header .title-hr {
+.header2 .title-hr {
   visibility: hidden;
 }
-header .title-contact {
+.header2 .title-contact {
   border-top: solid 0.09em var(--blue-200);
   padding-right: 5%;
   padding-left: 5%;
@@ -366,7 +363,7 @@ header .title-contact {
   display: flex;
   justify-content: space-evenly;
 }
-header .title-contact span {
+.header2 .title-contact span {
   margin-right: 4px;
 }
 
@@ -374,17 +371,39 @@ header .title-contact span {
   column-count: 3;
 }
 
+@media screen {
+  .header2:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(127, 127, 127, 0.05);
+    background-image: radial-gradient(rgba(220, 220, 220, 0.93) 33%, transparent 33%);
+    background-size: 0.06rem 0.06rem;
+  }
+}
 @media print {
   body {
     max-width: 21cm;
+    background: none;
   }
 
-  header > * {
-    background-color: blue;
+  .main-container {
+    height: auto;
   }
 
-  .section-tech-skills {
-    background-color: red !important;
+  .header2 {
+    color: #5f626c;
+    position: relative;
+  }
+  .header2 span, .header2 .title-name, .header2 .title-strap {
+    color: #5f626c;
+  }
+  .header2 .header2:after {
+    display: block;
   }
 }
 
