@@ -21,7 +21,7 @@
   --FontforRegular: 400 15px/22px var(--OpenSansfamily);
 
   // colors
-  --white-a100: #fff;
+  --white-a100: #ffffff;
   --white-a200: #797d8a;
   --white-a300: #f5f7fd;
   --grey-40: #c2c9de;
@@ -36,6 +36,11 @@
   --blue-200: #6666ce;
   --blue-400: #4949b6;
   --blue-800: #4343a4;
+
+  --teal-100: #d7fad6;
+  --teal-200: #7ee3ea;
+  --teal-400: #66bac0;
+  --teal-600: #529398;
 
   --section-border: 1px solid #f5f5f6;
 
@@ -88,7 +93,6 @@ body {
   transform: translateY(0px);
 }
 
-// <ul> <li> bulleted lists
 @mixin listContentStyle() {
   font-size: 12px;
   margin: 1px;
@@ -105,13 +109,30 @@ body {
   //color: red;
 }
 
-@mixin sectionTitle() {
-  //background-color: var(--grey-80);
-  padding-left: 18px;
-  padding-top: 8px;
-  font: var(--section-title);
+@mixin section-title() {
 
+  font-weight: 500;
+  color: white;
+  //text-shadow: 0px 0px 2px black;
+  -webkit-text-stroke: 0.01em;
+  letter-spacing: 3px;
+  font-size: 12px;
+  writing-mode: vertical-rl;
+  padding: 10px;
+  background-color: #9da2b4;
+  text-align: center;
 }
+
+.section-grid:nth-child(n + 1) > .section-title {
+  border-top: 4px solid #dcd8a9;
+  border-bottom: 6px solid #c28615;
+}
+
+.section-grid:nth-child(2n + 1) > .section-title {
+  border-top: 4px solid #91bba5;
+  border-bottom: 4px solid #adad65;
+}
+
 
 @mixin regularContent() {
   //background-color: var(--grey-80);
@@ -147,7 +168,7 @@ body {
  *               |___/               |___/
  */
 body {
-  background-color: lighten(orangered, 4%);
+  background-color: var(--teal-400);
 }
 
 body:after {
@@ -159,14 +180,14 @@ body:after {
   top: 0;
   bottom: 0;
   background: rgba(127, 127, 127, 0.05);
-  $cc: rgba(orange, .33);
+  $cc: rgba(gainsboro, .93);
   background-image: radial-gradient($cc 33%, transparent 33%);
-  background-size: .4rem .2rem;
+  background-size: .1rem .2rem;
   z-index: -10000;
 
 }
 
-section:not(.section-core-grid) {
+section {
   border: var(--section-border);
   margin-top: 5px;
   border-radius: 8px;
@@ -174,7 +195,6 @@ section:not(.section-core-grid) {
   margin-bottom: 18px;
   background-color: whitesmoke;
 }
-
 
 .material-icons {
   font-variant: normal;
@@ -212,32 +232,32 @@ section:not(.section-core-grid) {
   color: var(--grey-80);
 }
 
+.header {
+  margin-bottom: 18px;
+}
+
 header {
-  $col1: var(--blue-200);
-  $col2: var(--blue-400);
-  $col3: var(--blue-800);
-
-  border-bottom: 3px;
-  border-radius: 16px;
-
-  background:  black;
+  $col1: var(--teal-400);
+  $col2: var(--teal-200);
+  $col3: var(--teal-600);
+  background: linear-gradient(to top, $col3 30%, $col1 50%, $col3 90%);
   //radial-gradient(closest-side, $col1 0, $col2 40%, $col3 60%),
   //radial-gradient(circle at 10%, $col1 0, $col2 20%, $col3 60%),
   //radial-gradient(ellipse at bottom, $col1 0, $col2 20%, $col3 60%);
+  box-shadow: 1px 1px 12px -5px #3a423e;
+  border-bottom: 1px dotted #128a93;
   text-align: start;
 
   .title-name {
-    //color: red;
     color: var(--white-a100);
+    -webkit-text-stroke-width: 0.09rem;
+    text-shadow: 0 1px 1px gainsboro;
     font-family: var(--familyForHeadings);
     font-weight: 500;
-    //font-kerning: normal;
-    //font-variant: small-caps;
-    //font-stretch: normal;
     font-size: 3.1em;
     padding-top: 15px;
     line-height: 1.1em;
-    text-shadow: 0 2px rgba(white, .1), 2px 0 5px rgba(palegreen, .1);
+    // text-shadow: 0 2px rgba(white, .1), 2px 0 5px rgba(palegreen, .1);
   }
 
   .title-contact {
@@ -291,98 +311,36 @@ header:after {
   top: 0;
   bottom: 0;
   background: rgba(127, 127, 127, 0.05);
-  $cc: rgba(black, .03);
+  $cc: rgba(gainsboro, .03);
   background-image: radial-gradient($cc 33%, transparent 33%);
   background-size: .4rem .4rem;
 
 }
 
-
-// Education.
-.section-education {
-
-  .education-title {
-    @include sectionTitle();
-  }
-
-  .education-card {
-    .education-card-title {
-      @include regularTitle;
-    }
-
-    .education-card-content {
-      @include regularContent;
-    }
-  }
-
+.skills-card-header {
+  @include listContentTitle;
 }
 
-// Employment.
-.section-employment {
-  .section-title-employment {
-    @include sectionTitle();
-  }
+.skills-card-content {
+  @include listContentStyle
 }
 
-// Skills.
-.section-tech-skills {
-  .section-skills-title {
-    @include sectionTitle();
-  }
-
-  .skills-card-header {
-    @include listContentTitle;
-  }
-
-  .skills-card-content {
-    @include listContentStyle
-  }
-}
-
-// Sectors.
+// Industries.
 .section-industries {
-  //$g1: var( --background-brown100);
-  //$g2: var( --background-brown200);
-  //$g3: white;
-  //@include backgroundGradient( $g1, $g3, $g2);
-
-
-  .industries-title {
-    @include sectionTitle();
-  }
-
   .sectors-card-header {
     @include listContentTitle;
   }
-
-  .industries-content {
-    @include regularContent();
-  }
 }
 
-// Role Sought.
-.section-role-sort {
-  $g1: var(--background-green100);
-  $g2: var(--background-green200);
-  $g3: white;
-  //@include backgroundGradient( $g1, $g3, $g2);
-  .role-sought-title {
-    @include sectionTitle();
-  }
-
-  .role-sought-card-header {
-    @include listContentTitle;
-  }
-
-  .role-sought-card-content {
-    @include regularTitle;
-  }
+.section-content {
+  @include regularContent();
 }
+
 
 // PROFESSIONAL SUMMARY
 .section-professional-summary {
   .professional-summary-title {
-    @include sectionTitle();
+    //@include sectionTitle();
   }
 
   .professional-summary-content {
@@ -449,7 +407,9 @@ header:after {
  */
 
 @mixin section-grid() {
-  background-color: orange;
+  //background-color: orange;
+  margin-left: 18px;
+  margin-right: 18px;
   position: relative;
   display: grid;
   grid-template-columns: 50px 1fr;
@@ -457,38 +417,35 @@ header:after {
     @include section-title;
   }
   > .content {
-    @include  section-content;
+    @include section-content;
   }
 }
-@mixin section-title() {
-  font-weight: 500;
-  color: white;
-  //text-shadow: 0px 0px 6px black;
-  -webkit-text-stroke: gray 0.02em;
-  letter-spacing: 3px;
-  font-size: 35px;
-  writing-mode: vertical-rl;
-  padding: 10px;
-}
-@mixin section-content(){
+
+@mixin section-content() {
   display: block;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
   width: 100%;
-  //width: calc(100% - 50px);
   background-color: transparent;
+  margin-left: 10px;
 }
+
 .section-grid {
-@include section-grid;
+  @include section-grid;
+ // box-shadow: 0px 1px 11px -3px rgba(black, .2);
+
 
 }
+
 .section-title {
-@include section-title
+  @include section-title
 }
-.section-content{
+
+.section-content {
   @include section-content;
 }
+
 header {
   position: relative;
   display: grid;
@@ -525,45 +482,10 @@ header {
     }
   }
 }
-.section-tech-skills {
-@include section-grid;
 
+.section-tech-skills {
   & ul {
     column-count: 3;
-  }
-}
-.section-skills-title {
-  @include  section-title;
-}
-.section-skills-content{
-  @include section-content;
-}
-
-.section-industries {
-  @include section-grid;
-}
-
-
-.section-employment {
-
-  .card-employment {
-
-    .card-title-employment {
-      display: grid;
-      grid-auto-flow: row;
-      grid-template-columns: 1fr 1fr;
-
-      font: var(--card-title);
-
-      > div:nth-child(2) {
-        text-align: center;
-      }
-    }
-
-    .card-content-employment {
-      font: var(--card-content)
-    }
-
   }
 }
 
