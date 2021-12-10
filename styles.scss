@@ -33,7 +33,7 @@
   --grey-100: #232428;
   --blue-50: #cbcbf5;
   --blue-100: #d0d0de;
-  --blue-200: #4f4f77;
+  --blue-200: #7c7c94;
   --blue-400: #4949b6;
   --blue-800: #4343a4;
 
@@ -41,9 +41,9 @@
   //--teal-200: #7ee3ea;
   //--teal-400: #66bac0;
   --teal-100: rgba(105, 102, 95, 0.95);
-  --teal-200: rgba(105, 102, 95, 0.95);
-  --teal-400: rgba(105, 102, 95, 0.70);
-  --teal-600: rgba(59, 62, 77, 0.95);
+  --teal-200: rgba(165, 222, 205, 0.95);
+  --teal-400: rgba(173, 166, 156, 0.7);
+  --teal-600: rgba(122, 125, 140, 0.95);
 
   --section-border: 1px solid #f5f5f6;
 
@@ -226,9 +226,8 @@ section {
   position: sticky;
   top:0;
   $col1: var(--teal-400);
-  $col2: var(--teal-200);
   $col3: var(--teal-600);
-  background: linear-gradient(to top, $col3 30%, $col1 50%, $col3 90%);
+  background: linear-gradient(to top, $col3 20%, $col1 50%, $col3 90%);
   box-shadow:
 
           0px 5px 18px -2px #948b5b;
@@ -244,18 +243,14 @@ section {
     font-size: 3.1em;
     padding-top: 15px;
     line-height: 1.1em;
-    // text-shadow: 0 2px rgba(white, .1), 2px 0 5px rgba(palegreen, .1);
   }
 
   .title-contact {
-    //font-variant: petite-caps;
     box-sizing: border-box;
     width: 100%;
-    //color: orange;
     color: var(--white-a100);
     font-size: 11px;
     font-kerning: normal;
-    //background-color: red;
   }
 
   .title-strap {
